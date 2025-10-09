@@ -11,9 +11,7 @@ def main():
     table_text = convert_json_to_table(json_data)
     save_table_to_txt(table_text,filename)
     print(f"Таблица сохранена в {filename}")
-    
-    #print(filename)
-    #print(json_data)
+
     
 if __name__ == "__main__":
     main()
