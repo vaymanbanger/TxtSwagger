@@ -1,13 +1,10 @@
-import requests
 from urllib.parse import urlparse
 import urllib3
+import datetime
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-def extract_name_from_url(url: str):
-    split = urlparse(url)
-    return split.path
-
-#response = requests.get(url, verify=False)
-#response.json()
-#print(response)
+    
+def form_file_name(url: str) -> str:
+    resource_name = urlparse(url)
+    date = datetime.date.today().isoformat()
+    return f"{resource_name.path}_{date}.txt"
