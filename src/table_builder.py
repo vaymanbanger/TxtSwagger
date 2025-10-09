@@ -1,7 +1,8 @@
 from requests import Response
 import pandas as pd
 from pandas import json_normalize
-
+import io
+from io import StringIO
 
 def convert_json_to_table(data: list) -> str:
     if not data:
@@ -11,5 +12,5 @@ def convert_json_to_table(data: list) -> str:
     #for item in data:
        # if isinstance(item,dict):
         #    keys.update(item.keys)
-    table = pd.DataFrame(data)
-    return table.to_csv('\t', False,'')
+    dataframe = pd.DataFrame(data)
+    return dataframe.to_csv(path_or_buf=None, sep='\t', index=False, na_rep='')
